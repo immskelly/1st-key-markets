@@ -1,0 +1,503 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #777070;
+    color: #333;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    margin: 1rem;
+    box-shadow: 0 4px 20px rgb(212, 235, 5);
+}
+
+.error-message {
+    background-color: #ffdddd;
+    color: #d32f2f;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    display: none;
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab-btn {
+    padding: 0.5rem 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    flex: 1;
+    text-align: center;
+}
+
+.tab-btn.active {
+    border-bottom: 2px solid #1a365d;
+    color: #1a365d;
+    font-weight: bold;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content h3 {
+    margin-top: 0;
+    color: #1a365d;
+    text-align: center;
+}
+
+.tab-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tab-content input {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.password-container {
+    position: relative;
+}
+
+.password-container i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #777;
+}
+
+.tab-content button {
+    background: #1a365d;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Navigation Menu */
+.menu-toggle {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 100;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: #1a365d;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+
+.side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    background-color: #1a365d;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.side-menu a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 1rem;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.side-menu a:hover {
+    background-color: #142a4a;
+}
+
+.side-menu .logout-btn {
+    margin-top: 2rem;
+    background-color: #d32f2f;
+}
+
+/* Header */
+header {
+    background: #1a365d;
+    color: white;
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.search-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.search-box {
+    display: flex;
+    border-radius: 5px;
+    overflow: hidden;
+    flex: 1;
+    max-width: 300px;
+}
+
+.search-box input {
+    padding: 0.5rem;
+    border: none;
+    width: 100%;
+}
+
+.search-box button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0 1rem;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/bg.jpg');
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-top: 1rem;
+}
+
+.btn-call {
+    background: #4CAF50;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+/* Forex Rates */
+.forex-rates {
+    padding: 1.5rem;
+    text-align: center;
+    background: white;
+    margin: 1.5rem auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.rates-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.rate-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px hsl(56, 87%, 50%);
+    width: 150px;
+}
+
+.price {
+    color: #1a73e8;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Reviews List */
+.reviews-list {
+    background: hsl(0, 8%, 79%);
+    padding: 1rem;
+    margin: 1.5rem auto;
+    max-width: 600px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.reviews-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.reviews-list li {
+    padding: 0.5rem;
+    border-bottom: 1px solid hwb(120 7% 13%);
+    font-size: 0.9rem;
+}
+
+/* Services */
+.services {
+    padding: 1rem;
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.service {
+    background: hwb(193 89% 8%);
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px hsl(0, 95%, 50%);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.service:hover {
+    transform: translateY(-5px);
+}
+
+/* Form Options */
+.form-options {
+    margin: 1rem 0;
+    display: none;
+}
+
+.option-checkbox {
+    display: block;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background: #f5f5f5;
+    border-radius: 5px;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.return-btn, .continue-btn, .send-email-btn {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.return-btn {
+    background: #777;
+    color: white;
+}
+
+.continue-btn, .send-email-btn {
+    background: #1a365d;
+    color: white;
+}
+
+/* Payment Methods */
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.payment-method {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.payment-method:hover {
+    background: #e2e6ea;
+}
+
+.payment-method i {
+    font-size: 1.5rem;
+    color: #1a365d;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 500px;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input, textarea, select {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    background: #1a365d;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background: #1a365d;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .search-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .search-box {
+        width: 100%;
+        max-width: none;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .forex-rates, .reviews-list, .contact-form {
+        margin: 1rem;
+        width: auto;
+    }
+    
+    .modal-content {
+        width: 90%;
+        padding: 1rem;
+    }
+    
+    .form-buttons {
+        flex-direction: column;
+    }
+    
+    .return-btn, .continue-btn, .send-email-btn {
+        width: 100%;
+    }
+    
+    .btn-call {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-tabs {
+        flex-direction: column;
+    }
+    
+    .tab-btn {
+        padding: 0.8rem;
+    }
+    
+    .payment-method {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .social-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

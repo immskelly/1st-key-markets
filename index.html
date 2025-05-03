@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1st KEY Markets | Forex Trading & Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+    <head>
+        <body>
+            <!-- Your entire website content here-->
+
+            <script src="script.js"></script>
+            </body>
+            </html>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Login/Register Modal -->
+    <div id="auth-modal" class="modal" style="display: flex;">
+        <div class="modal-content">
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="openTab('login')">Login</button>
+                <button class="tab-btn" onclick="openTab('register')">Register</button>
+            </div>
+            
+            <div id="login-error" class="error-message" style="display: none;"></div>
+            
+            <div id="login" class="tab-content" style="display: block;">
+                <h3>Login to Your Account</h3>
+                <form id="loginForm">
+                    <input type="email" placeholder="Email Address" required>
+                    <div class="password-container">
+                        <input type="password" placeholder="Password" required id="loginPassword">
+                        <i class="fas fa-eye" onclick="togglePassword('loginPassword')"></i>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+            
+            <div id="register" class="tab-content">
+                <h3>Create New Account</h3>
+                <form id="registerForm">
+                    <input type="text" placeholder="Name" required>
+                    <input type="text" placeholder="Surname" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="tel" placeholder="Cellphone Number" required>
+                    <div class="password-container">
+                        <input type="password" placeholder="Create Password" required id="registerPassword">
+                        <i class="fas fa-eye" onclick="togglePassword('registerPassword')"></i>
+                    </div>
+                    <div class="password-container">
+                        <input type="password" placeholder="Confirm Password" required id="confirmPassword">
+                        <i class="fas fa-eye" onclick="togglePassword('confirmPassword')"></i>
+                    </div>
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content (hidden until login) -->
+    <div id="main-content" style="display: none;">
+        <!-- Navigation Menu -->
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        
+        <div id="side-menu" class="side-menu">
+            <a href="#" onclick="navigateTo('register')">Create New Account</a>
+            <a href="#" onclick="navigateTo('services')">Purchase</a>
+            <a href="#" onclick="navigateTo('contact')">Rate Us</a>
+            <a href="https://wa.me/+264817240400" target="_blank">Contact Us Live (WhatsApp)</a>
+            <a href="#" onclick="logout()" class="logout-btn">Log Out</a>
+        </div>
+
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <h1>1st KEY Markets</h1>
+            </div>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search services..." id="serviceSearch">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Find contact details..." id="contactSearch">
+                    <button><i class="fas fa-address-book"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>Your Trusted Forex & Financial Partner</h2>
+            <p>Get real-time exchange rates & expert advice.</p>
+            <a href="tel:0817240400" class="btn-call">
+                <i class="fas fa-phone" style="color: #ff0000;"></i> 
+                Call Now: 081 724 0400
+            </a>
+        </section>
+
+        <!-- Forex Rates -->
+        <section id="forex" class="forex-rates">
+            <h2>Today's Exchange Rates</h2>
+            <div class="rates-container">
+                <div class="rate-card">
+                    <h3>USD/ZAR</h3>
+                    <p>1 USD = <span class="price">18.50</span> ZAR</p>
+                </div>
+                <div class="rate-card">
+                    <h3>EUR/ZAR</h3>
+                    <p>1 EUR = <span class="price">20.10</span> ZAR</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simple Reviews List -->
+        <section class="reviews-list">
+            <h2>Client Feedback ◆◆◆◆◇ 4.5</h2>
+            <ul>
+                <li><strong>John K.</strong>: "Weekly signals helped me earn 15% returns!"</li>
+                <li><strong>Sarah M.</strong>: "The mentorship program changed everything for me"</li>
+                <li><strong>David T.</strong>: "Most reliable service in Namibia"</li>
+            </ul>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="services">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service" onclick="showSubscription('Weekly Signals - N$ 200')">
+                    <h3>Weekly Signals</h3>
+                    <p>N$ 200</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service" onclick="showSubscription('Monthly Signals - N$ 400')">
+                    <h3>Monthly Signals</h3>
+                    <p>N$ 400</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service" onclick="showSubscription('Quarterly Package - N$ 700')">
+                    <h3>Quarterly Package</h3>
+                    <p>N$ 700</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service" onclick="showSubscription('Sunday Setups - N$ 100')">
+                    <h3>Sunday Setups</h3>
+                    <p>N$ 100 <small>(save N$50)</small></p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service" onclick="showSubscription('Loan Services - 30% interest')">
+                    <h3>Loan Services</h3>
+                    <p>30% interest</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service" onclick="showSubscription('Mentorship - N$ 1000')">
+                    <h3>Mentorship</h3>
+                    <p>N$ 1000</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subscription Form Modal -->
+        <div id="subscription-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h2>Complete Subscription</h2>
+                <form id="packageForm">
+                    <input type="text" placeholder="Name" required>
+                    <input type="text" placeholder="Surname" required>
+                    <input type="date" placeholder="Date of Birth" required>
+                    <input type="text" placeholder="Residential Address" required>
+                    <input type="tel" placeholder="Cellphone Number" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="text" id="selectedPackage" readonly>
+                    
+                    <div class="form-options" style="display: none;">
+                        <label class="option-checkbox">
+                            <input type="checkbox" required> I confirm all information is correct
+                        </label>
+                        <label class="option-checkbox">
+                            <input type="checkbox" required> I agree to terms and conditions
+                        </label>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="return-btn" onclick="returnToServices()">Return</button>
+                        <button type="button" class="continue-btn" onclick="validateSubscriptionForm()">Continue</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Payment Options Modal -->
+        <div id="payment-options-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h2>Select Payment Method</h2>
+                <div class="payment-methods">
+                    <div class="payment-method" onclick="selectPayment('FNB e-wallet to +264857901009')">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>FNB e-wallet to +264857901009</span>
+                    </div>
+                    <div class="payment-method" onclick="selectPayment('Pay-To-Cell to +264857901009')">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Pay-To-Cell to +264857901009</span>
+                    </div>
+                    <div class="payment-method" onclick="selectPayment('VisaCard')">
+                        <i class="fab fa-cc-visa"></i>
+                        <span>VisaCard</span>
+                    </div>
+                </div>
+                <button type="button" class="return-btn" onclick="returnToSubscription()">Return</button>
+            </div>
+        </div>
+
+        <!-- Bank Payment Form Modal -->
+        <div id="bank-payment-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h2>Bank Payment Details</h2>
+                <form id="bankPaymentForm">
+                    <input type="text" placeholder="Name" required>
+                    <input type="text" placeholder="Surname" required>
+                    <input type="number" placeholder="Amount" required>
+                    <input type="text" id="bankPaymentMethod" readonly>
+                    <input type="text" placeholder="Reference Number" required>
+                    
+                    <div class="form-options">
+                        <label class="option-checkbox">
+                            <input type="checkbox" required> I confirm payment details
+                        </label>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="return-btn" onclick="returnToPaymentOptions()">Return</button>
+                        <button type="button" class="send-email-btn" onclick="submitBankPayment()">Send Email</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Card Payment Form Modal -->
+        <div id="card-payment-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h2>Card Payment Details</h2>
+                <form id="cardPaymentForm">
+                    <input type="text" placeholder="Name" required>
+                    <input type="text" placeholder="Surname" required>
+                    <input type="number" placeholder="Amount" required>
+                    <div id="card-details">
+                        <input type="text" placeholder="Card Number" required pattern="[0-9]{16}">
+                        <input type="text" placeholder="Expiry Date (MM/YY)" required pattern="(0[1-9]|1[0-2])\/[0-9]{2}">
+                        <input type="text" placeholder="CVV" required pattern="[0-9]{3}">
+                        <select required>
+                            <option value="">Select Bank</option>
+                            <option>FNB</option>
+                            <option>BANK WINDHOEK</option>
+                            <option>NEDBANK</option>
+                            <option>STANDARD BANK</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="option-checkbox">
+                            <input type="checkbox" required> I confirm payment details
+                        </label>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="return-btn" onclick="returnToPaymentOptions()">Return</button>
+                        <button type="button" class="continue-btn" onclick="submitCardPayment()">Complete Payment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <section id="contact" class="contact-form">
+            <h2>Contact Us</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="tel" placeholder="Phone (Optional)">
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="social-links">
+                <a href="https://wa.me/27817240400" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://tiktok.com/@1stkeymarkets" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+                <a href="https://instagram.com/1stkeymarkets" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+            <p>Email: <a href="mailto:fmarkets86@gmail.com">fmarkets86@gmail.com</a></p>
+            <p>&copy; 2024 1st KEY Markets. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // User authentication
+        let currentUser = null;
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Show main content only after login
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('auth-modal').style.display = 'flex';
+            document.getElementById('main-content').style.display = 'none';
+            
+            // Auto-fill login if remembered
+            if(localStorage.getItem('rememberedEmail')) {
+                document.querySelector('#loginForm input[type="email"]').value = localStorage.getItem('rememberedEmail');
+            }
+        });
+
+        // Toggle password visibility
+        function togglePassword(id) {
+            const input = document.getElementById(id);
+            const icon = input.nextElementSibling;
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        // Login function
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            
+            const user = users.find(u => u.email === email && u.password === password);
+            
+            if (user) {
+                currentUser = user;
+                localStorage.setItem('rememberedEmail', email);
+                document.getElementById('auth-modal').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                document.getElementById('login-error').style.display = 'none';
+            } else {
+                showError('login-error', 'The credentials you\'re trying to login with are incorrect 😠');
+            }
+        });
+
+        // Registration function
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = this;
+            const email = form.querySelector('input[type="email"]').value;
+            const password = form.querySelector('input[type="password"]').value;
+            const confirmPassword = form.querySelectorAll('input[type="password"]')[1].value;
+            
+            if (password !== confirmPassword) {
+                showError('login-error', 'Passwords do not match 😠');
+                return;
+            }
+            
+            if (users.some(u => u.email === email)) {
+                showError('login-error', 'Email already registered 😠');
+                return;
+            }
+            
+            const newUser = {
+                name: form.querySelector('input[type="text"]').value,
+                surname: form.querySelectorAll('input[type="text"]')[1].value,
+                email: email,
+                phone: form.querySelector('input[type="tel"]').value,
+                password: password
+            };
+            
+            users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(users));
+            currentUser = newUser;
+            localStorage.setItem('rememberedEmail', email);
+            
+            alert('Registration successful! You are now logged in.');
+            document.getElementById('auth-modal').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+            document.getElementById('login-error').style.display = 'none';
+            openTab('login');
+        });
+
+        // Tab switching
+        function openTab(tabName) {
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].style.display = 'none';
+            }
+            
+            const tabButtons = document.getElementsByClassName('tab-btn');
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('active');
+            }
+            
+            document.getElementById(tabName).style.display = 'block';
+            event.currentTarget.classList.add('active');
+        }
+
+        // Show error message
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+            setTimeout(() => {
+                errorElement.style.display = 'none';
+            }, 5000);
+        }
+
+        // Navigation menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('side-menu');
+            menu.style.width = menu.style.width === '250px' ? '0' : '250px';
+        }
+
+        // Navigate to section
+        function navigateTo(section) {
+            document.getElementById('side-menu').style.width = '0';
+            if (section === 'register') {
+                document.getElementById('auth-modal').style.display = 'flex';
+                openTab('register');
+            } else {
+                document.querySelector(section === 'services' ? '.services' : '#' + section).scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Logout function
+        function logout() {
+            currentUser = null;
+            document.getElementById('auth-modal').style.display = 'flex';
+            document.getElementById('main-content').style.display = 'none';
+            document.getElementById('side-menu').style.width = '0';
+            document.getElementById('loginForm').reset();
+            openTab('login');
+        }
+
+        // Subscription system
+        function showSubscription(packageName) {
+            document.getElementById('selectedPackage').value = packageName;
+            document.getElementById('subscription-modal').style.display = 'flex';
+            
+            // Auto-fill user details if available
+            if (currentUser) {
+                const form = document.getElementById('packageForm');
+                form.querySelector('input[type="text"]').value = currentUser.name;
+                form.querySelectorAll('input[type="text"]')[1].value = currentUser.surname;
+                form.querySelector('input[type="tel"]').value = currentUser.phone;
+                form.querySelector('input[type="email"]').value = currentUser.email;
+            }
+        }
+
+        // Validate subscription form
+        function validateSubscriptionForm() {
+            const form = document.getElementById('packageForm');
+            const options = form.querySelectorAll('.option-checkbox input');
+            let isValid = true;
+            
+            // First validate required fields
+            const inputs = form.querySelectorAll('input[required]');
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    showError('login-error', `Please fill in ${input.placeholder} 😠`);
+                    isValid = false;
+                }
+            });
+            
+            if (!isValid) return;
+            
+            // Show options if not shown
+            if (form.querySelector('.form-options').style.display === 'none') {
+                form.querySelector('.form-options').style.display = 'block';
+                return;
+            }
+            
+            // Validate options
+            options.forEach(option => {
+                if (!option.checked) {
+                    showError('login-error', 'Please check both options!!!');
+                    isValid = false;
+                }
+            });
+            
+            if (isValid) {
+                document.getElementById('subscription-modal').style.display = 'none';
+                document.getElementById('payment-options-modal').style.display = 'flex';
+            }
+        }
+
+        // Return to services
+        function returnToServices() {
+            document.getElementById('subscription-modal').style.display = 'none';
+        }
+
+        // Select payment method
+        function selectPayment(method) {
+            document.getElementById('payment-options-modal').style.display = 'none';
+            
+            if (method === 'VisaCard') {
+                document.getElementById('card-payment-modal').style.display = 'flex';
+                document.getElementById('cardPaymentForm').querySelector('input[type="text"]').value = 
+                    document.getElementById('packageForm').querySelector('input[type="text"]').value;
+                document.getElementById('cardPaymentForm').querySelectorAll('input[type="text"]')[1].value = 
+                    document.getElementById('packageForm').querySelectorAll('input[type="text"]')[1].value;
+            } else {
+                document.getElementById('bankPaymentForm').querySelector('input[type="text"]').value = 
+                    document.getElementById('packageForm').querySelector('input[type="text"]').value;
+                document.getElementById('bankPaymentForm').querySelectorAll('input[type="text"]')[1].value = 
+                    document.getElementById('packageForm').querySelectorAll('input[type="text"]')[1].value;
+                document.getElementById('bankPaymentMethod').value = method;
+                document.getElementById('bank-payment-modal').style.display = 'flex';
+            }
+        }
+
+        // Return to subscription form
+        function returnToSubscription() {
+            document.getElementById('payment-options-modal').style.display = 'none';
+            document.getElementById('subscription-modal').style.display = 'flex';
+        }
+
+        // Return to payment options
+        function returnToPaymentOptions() {
+            document.getElementById('bank-payment-modal').style.display = 'none';
+            document.getElementById('card-payment-modal').style.display = 'none';
+            document.getElementById('payment-options-modal').style.display = 'flex';
+        }
+
+        // Submit bank payment
+        function submitBankPayment() {
+            const form = document.getElementById('bankPaymentForm');
+            const option = form.querySelector('.option-checkbox input');
+            
+            if (!option.checked) {
+                showError('login-error', 'Please confirm payment details 😠');
+                return;
+            }
+            
+            alert('Payment details sent to fmarkets86@gmail.com');
+            form.reset();
+            document.getElementById('bank-payment-modal').style.display = 'none';
+        }
+
+        // Submit card payment
+        function submitCardPayment() {
+            const form = document.getElementById('cardPaymentForm');
+            const option = form.querySelector('.option-checkbox input');
+            
+            if (!option.checked) {
+                showError('login-error', 'Please confirm payment details 😠');
+                return;
+            }
+            
+            // Validate card details
+            const inputs = form.querySelectorAll('input[required], select[required]');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    showError('login-error', `Please fill in ${input.placeholder} 😠`);
+                    isValid = false;
+                } else if (input.hasAttribute('pattern') && !new RegExp(input.getAttribute('pattern')).test(input.value)) {
+                    showError('login-error', `Invalid ${input.placeholder} format 😠`);
+                    isValid = false;
+                }
+            });
+            
+            if (isValid) {
+                alert('Payment approved! Please complete the payment on your bank app.');
+                form.reset();
+                document.getElementById('card-payment-modal').style.display = 'none';
+            }
+        }
+
+        // Search functionality
+        document.querySelectorAll('.search-box button').forEach(button => {
+            button.addEventListener('click', function() {
+                const searchTerm = this.parentElement.querySelector('input').value.toLowerCase();
+                if (searchTerm.includes('service') || searchTerm.includes('signal')) {
+                    document.querySelector('.services').scrollIntoView({ behavior: 'smooth' });
+                } 
+                else if (searchTerm.includes('contact') || searchTerm.includes('call')) {
+                    document.querySelector('.contact-form').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
